@@ -50,7 +50,28 @@ const factsList = document.querySelector('.facts-list');
 
 // Create DOM elements: Render facts in list
 factsList.innerHTML = '';
-createFactsList(initialFacts)
+
+// Load data from Supabase
+loadFacts();
+
+async function loadFacts() {
+  const res = await fetch(
+    'https://vzkkcocbicgjaqiqaops.supabase.co/rest/v1/facts',
+    {
+      headers: {
+        apikey:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ6a2tjb2NiaWNnamFxaXFhb3BzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzM3NTIyMjYsImV4cCI6MjA0OTMyODIyNn0.0CVpTgxHuBuD898FgSQ7mnywpsNy5GetcBqHbmt1jX0',
+        authorization:
+          'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ6a2tjb2NiaWNnamFxaXFhb3BzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzM3NTIyMjYsImV4cCI6MjA0OTMyODIyNn0.0CVpTgxHuBuD898FgSQ7mnywpsNy5GetcBqHbmt1jX0',
+      },
+    }
+  );
+  const data = await res.json();
+  // console.log(data);
+  // const filteredData = data.filter((fact) => fact.category === 'history');
+
+  createFactsList(data);
+}
 
 function createFactsList(dataArray) {
   const htmlArr = dataArray.map(
@@ -65,17 +86,16 @@ function createFactsList(dataArray) {
       </a>
     </p>
     <span class="tag"
-          style="background-color: #3b82f6"
+          style="background-color: 
+          ${CATEGORIES.find((cat) => 
+          cat.name === fact.category).color}"
     >
     ${fact.category}
     </span>
-</li>`);
-  console.log(htmlArr);
-
+  </li>`);
   const html = htmlArr.join('');
   factsList.insertAdjacentHTML('afterbegin', html);
-};
-
+}
 
 // Toggle form visibility
 btn.addEventListener('click', function () {
