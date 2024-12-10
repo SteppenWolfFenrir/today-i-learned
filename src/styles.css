@@ -6,7 +6,7 @@
 
 body {
   font-family: "Sono", sans-serif;
-  padding: 48px 64px;
+  padding: 48px 64px 0;
   color: #f8fafc;
   background-color: #292524;
 }
@@ -23,7 +23,7 @@ ul {
   list-style: none;
 }
 
-.container {
+#root {
   max-width: 1500px;
   margin: 0 auto;
 }
@@ -51,12 +51,19 @@ ul {
   display: grid;
   grid-template-columns: 250px 1fr;
   gap: 48px;
+  height: 60vh;
 }
 
 @media (max-width: 900px) {
   .main {
     grid-template-columns: 1fr;
+    height: auto;
   }
+}
+
+section {
+  overflow: scroll;
+  padding-bottom: calc(100vh - 48px - 68px - 48px);
 }
 
 .fact-form {
@@ -170,6 +177,10 @@ ul {
   background-color: #292524;
 }
 
+.vote-buttons button:disabled {
+  background-color: #44403c;
+}
+
 .btn {
   font-family: "Coiny", sans-serif;
   font-size: 17px;
@@ -205,7 +216,7 @@ ul {
 
 @media (max-width: 1100px) {
   .body {
-    padding: 32px 48px;
+    /*padding: 32px 48px;*/
   }
 
   .fact-form {
@@ -230,4 +241,23 @@ ul {
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
+}
+
+.message {
+  font-size: 32px;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 24px;
+}
+
+.emoji {
+  font-size: 60px;
+  margin-left: 15px;
+}
+
+.disputed {
+  color: #ef4444;
+  font-weight: 600;
+  margin-right: 10px;
 }
