@@ -2,6 +2,8 @@
 
 **Today I Learned** is a React-based application designed for users to document and categorize short notes about new experiences, ideas, or knowledge. The project demonstrates modern React development practices and emphasizes clean, maintainable code.
 
+## Check out the live demo of the project on [GitHub Pages.](https://steppenwolffenrir.github.io/today-i-learned/)
+
 ## **Description**
 
 This project serves as a learning exercise, focusing on building a dynamic user interface using React. It highlights how to manage state effectively and structure components for a responsive and intuitive experience.
