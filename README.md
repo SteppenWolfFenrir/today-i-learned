@@ -46,14 +46,11 @@ This project serves as a learning exercise, focusing on building a dynamic user 
     npm install
     ```
 
-4. Run the build script:
+4. Run the start script:
     ```bash
-    npm run build
+    npm run start
     ```
-5. Open the project in the browser:
-    ```
-    https://steppenwolffenrir.github.io/today-i-learned/
-    ```
+    
 
 ## Screenshots
 
